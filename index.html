@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gokkens Construction Company Nig. Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@0.363.0/dist/umd/lucide.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B2B5C;--navy-dark:#071C3E;--navy-mid:#0F3570;
+  --green:#1A7A3C;--green-bright:#22A050;--gold:#C9A227;
+  --white:#fff;--off:#F4F6FA;--tm:#3A4A6B;--tl:#6B7CA4;
+  --border:rgba(11,43,92,.12)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:#0D1B35;background:#fff;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--green-bright);border-radius:4px}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:999;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(7,28,62,.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(34,160,80,.2);transition:.3s}
+#nav.s{height:60px;box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nname{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;color:#fff;letter-spacing:1px;line-height:1}
+.nsub{font-size:9px;color:var(--green-bright);letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.nlinks{display:flex;align-items:center;gap:28px;list-style:none}
+.nlinks a{text-decoration:none;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.8px;text-transform:uppercase;transition:.2s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--green-bright);transition:.2s}
+.nlinks a:hover{color:#fff}.nlinks a:hover::after{width:100%}
+.ncta{background:var(--green)!important;color:#fff!important;padding:8px 18px!important;border-radius:4px}
+.ncta:hover{background:var(--green-bright)!important}.ncta::after{display:none!important}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.mob{display:none;position:fixed;top:70px;left:0;right:0;background:var(--navy-dark);padding:20px 5%;z-index:998;border-top:1px solid rgba(34,160,80,.15)}
+.mob a{display:block;padding:13px 0;text-decoration:none;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,.06);transition:.2s}
+.mob a:hover{color:var(--green-bright)}
+
+/* HERO */
+#hero{min-height:100vh;background:linear-gradient(135deg,rgba(7,28,62,.93) 0%,rgba(11,43,92,.88) 55%,rgba(26,122,60,.5) 100%),url('https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,160,80,.15);border:1px solid rgba(34,160,80,.4);padding:6px 14px;border-radius:30px;margin-bottom:22px;color:#6EE69A;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.hbadge b{width:6px;height:6px;background:var(--green-bright);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.htitle{font-family:'Oswald',sans-serif;font-size:clamp(44px,8vw,92px);font-weight:700;color:#fff;line-height:1;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px;animation:up .8s ease both}
+.htitle em{color:var(--green-bright);font-style:normal}
+.hsub{font-family:'Oswald',sans-serif;font-size:clamp(18px,3vw,32px);font-weight:400;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:3px;margin-bottom:20px;animation:up .9s ease both}
+.hdesc{font-size:15px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75;margin-bottom:36px;animation:up 1s ease both}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2}
+.btn1{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:13px 26px;border-radius:4px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:.25s;border:none;cursor:pointer}
+.btn1:hover{background:var(--green-bright);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,122,60,.4)}
+.btn2{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;padding:13px 26px;border-radius:4px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;border:2px solid rgba(255,255,255,.35);transition:.25s}
+.btn2:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* STATS */
+#stats{background:var(--navy)}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr)}
+.si{padding:36px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.si:first-child{border-left:1px solid rgba(255,255,255,.08)}
+.sn{font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:#fff;line-height:1;margin-bottom:6px}
+.sn span{color:var(--green-bright)}
+.sl{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.divider{height:3px;background:linear-gradient(to right,var(--navy),var(--green),var(--navy))}
+
+/* SECTIONS */
+section{padding:88px 5%}
+.ey{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ey::before{content:'';width:28px;height:2px;background:var(--green)}
+.st{font-family:'Oswald',sans-serif;font-size:clamp(30px,4vw,50px);font-weight:700;line-height:1.1;color:var(--navy);text-transform:uppercase;letter-spacing:-.5px}
+.sd{font-size:15px;color:var(--tm);line-height:1.8;max-width:540px;margin-top:14px}
+
+/* SERVICES */
+#services{background:var(--off)}
+.shead{margin-bottom:48px}
+.svgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.sc{background:#fff;padding:36px 28px;position:relative;overflow:hidden;transition:.3s;border-left:3px solid transparent}
+.sc:hover{border-left-color:var(--green);transform:translateX(4px);box-shadow:8px 0 36px rgba(11,43,92,.1)}
+.sc::before{content:attr(data-n);position:absolute;top:12px;right:20px;font-family:'Oswald',sans-serif;font-size:60px;font-weight:700;color:#C5D0E4;line-height:1;transition:.3s}
+.sc:hover::before{color:rgba(26,122,60,.06)}
+.sicon{width:48px;height:48px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:.3s}
+.sc:hover .sicon{background:var(--green)}
+.sicon svg{color:#fff;transition:.3s}
+.sc:hover .sicon svg{color:#fff}
+.sn2{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.sdesc{font-size:13px;color:var(--tl);line-height:1.7}
+
+/* ABOUT */
+#about{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.aimg{width:100%;height:460px;object-fit:cover;border-radius:4px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));overflow:hidden;position:relative}
+.aimg img{width:100%;height:100%;object-fit:cover}
+.abadge{position:absolute;bottom:-20px;right:-20px;background:var(--green);color:#fff;padding:24px;border-radius:4px;text-align:center}
+.abadge .big{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;line-height:1}
+.abadge .sm{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.8;margin-top:4px}
+.alist{margin-top:24px;display:flex;flex-direction:column;gap:12px}
+.ali{display:flex;align-items:flex-start;gap:11px;font-size:14px;color:var(--tm);line-height:1.6}
+.ali svg{color:var(--green-bright);flex-shrink:0;margin-top:2px}
+.arc{display:inline-flex;align-items:center;gap:8px;background:var(--off);border:1px solid var(--border);padding:8px 14px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:1px;color:var(--tm);margin-top:28px}
+
+/* CEO */
+#ceo{background:var(--navy-dark);display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:center}
+.cframe{width:100%;aspect-ratio:3/4;background:linear-gradient(145deg,var(--navy-mid),var(--navy));border-radius:4px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(34,160,80,.2);position:relative;overflow:hidden}
+.cframe svg{color:rgba(255,255,255,.1)}
+.ctag{position:absolute;bottom:0;left:0;right:0;background:var(--green);padding:14px 18px}
+.ctag .cn{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;color:#fff;text-transform:uppercase}
+.ctag .cr{font-size:10px;color:rgba(255,255,255,.75);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.cey{color:var(--green-bright)!important}.cey::before{background:var(--green-bright)!important}
+.cst{color:#fff!important}
+.cstory{font-size:14px;color:rgba(255,255,255,.6);line-height:1.85;margin-top:18px}
+.cstory p{margin-bottom:14px}
+.cq{margin-top:24px;padding:18px 22px;border-left:3px solid var(--green-bright);background:rgba(34,160,80,.08);border-radius:0 4px 4px 0}
+.cq blockquote{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,.82);line-height:1.7}
+.cemail{margin-top:22px;display:flex;align-items:center;gap:8px;color:var(--green-bright);font-size:13px;font-weight:700;text-decoration:none;transition:.2s}
+.cemail:hover{color:#fff}
+
+/* PROPOSED */
+#pw{background:var(--off)}
+.pwgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pwc{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:.3s}
+.pwc:hover{box-shadow:0 10px 36px rgba(11,43,92,.1);transform:translateY(-4px)}
+.pwthumb{height:190px;overflow:hidden;position:relative;background:var(--navy)}
+.pwthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.pwc:hover .pwthumb img{transform:scale(1.05)}
+.pwb{padding:18px 20px}
+.pwcat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:6px}
+.pwtitle{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--navy);text-transform:uppercase;margin-bottom:6px}
+.pwdesc{font-size:12px;color:var(--tl);line-height:1.6}
+.pwfoot{padding:10px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.pws{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.pws.u{color:var(--gold)}.pws.o{color:var(--green-bright)}
+.pwlink{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--tm);font-weight:700;text-decoration:none;text-transform:uppercase;transition:.2s}
+.pwlink:hover{color:var(--navy)}
+.pwnote{margin-top:32px;padding:16px 20px;border:2px dashed var(--border);border-radius:4px;text-align:center;color:var(--tl);font-size:13px;display:flex;align-items:center;justify-content:center;gap:8px}
+.pwfilters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 32px}
+.pwf{background:transparent;border:1px solid var(--border);border-radius:30px;padding:8px 18px;font-size:12px;font-weight:700;color:var(--tm);cursor:pointer;transition:.2s;letter-spacing:.5px;font-family:'Lato',sans-serif}
+.pwf span{background:var(--off);border-radius:10px;padding:1px 7px;margin-left:4px;font-size:10px}
+.pwf:hover{border-color:var(--green);color:var(--green)}
+.pwf.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.pwf.active span{background:var(--green-bright);color:#fff}
+.pwgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+
+/* TESTIMONIALS */
+#testi{background:#fff}
+.thead{text-align:center;margin-bottom:48px}
+.thead .ey{justify-content:center}.thead .ey::before{display:none}
+.thead .st{text-align:center}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tc{padding:28px;border:1px solid var(--border);border-radius:4px;transition:.3s}
+.tc:hover{border-color:var(--green);box-shadow:0 10px 36px rgba(26,122,60,.09)}
+.tstars{display:flex;gap:3px;margin-bottom:14px}
+.tstars svg{color:var(--gold)}
+.tqi{color:var(--green);margin-bottom:12px}
+.ttext{font-size:13px;color:var(--tm);line-height:1.8;margin-bottom:20px;font-style:italic}
+.tau{display:flex;align-items:center;gap:11px}
+.tav{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--green));display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.tname{font-weight:700;font-size:13px;color:var(--navy)}
+.tco{font-size:11px;color:var(--tl);margin-top:2px}
+
+/* CONTACT */
+#contact{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.citems{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+.citem{display:flex;align-items:flex-start;gap:14px}
+.cicon{width:42px;height:42px;border-radius:4px;background:rgba(34,160,80,.12);border:1px solid rgba(34,160,80,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cicon svg{color:var(--green-bright)}
+.clbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:700}
+.cval{font-size:13px;color:rgba(255,255,255,.8);line-height:1.6}
+.cval a{color:inherit;text-decoration:none;transition:.2s}
+.cval a:hover{color:var(--green-bright)}
+.cfwrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:32px}
+.cftitle{font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#fff;text-transform:uppercase;margin-bottom:22px;letter-spacing:.5px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.fg label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:11px 13px;color:#fff;font-size:13px;font-family:'Lato',sans-serif;outline:none;transition:.2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--green-bright)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.25)}
+.fg select option{background:var(--navy-dark);color:#fff}
+.fg textarea{resize:vertical;min-height:90px}
+.fsub{width:100%;padding:13px;background:var(--green);border:none;border-radius:4px;color:#fff;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;gap:8px}
+.fsub:hover{background:var(--green-bright);transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,122,60,.4)}
+
+/* FOOTER */
+footer{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.05)}
+.fmain{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;padding:56px 5% 44px}
+.ftag{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:260px;margin-top:12px}
+.frc{margin-top:16px;font-size:10px;color:rgba(255,255,255,.25);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.fct{font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.07)}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:9px}
+.flinks a{font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;transition:.2s;display:flex;align-items:center;gap:7px}
+.flinks a:hover{color:var(--green-bright)}
+.fbot{border-top:1px solid rgba(255,255,255,.05);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fcopy{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:24px;right:24px;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(37,211,102,.4);z-index:998;text-decoration:none;transition:.3s;animation:floatIn 1s ease 1.5s both}
+@keyframes floatIn{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.wa:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.55)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .sgrid{grid-template-columns:repeat(2,1fr)}
+  .sgrid{gap:2px}
+  #about{grid-template-columns:1fr;gap:40px}
+  .abadge{right:0;bottom:-16px}
+  #ceo{grid-template-columns:260px 1fr;gap:40px}
+  .pwgrid{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:repeat(2,1fr)}
+  #contact{grid-template-columns:1fr;gap:36px}
+  .fmain{grid-template-columns:1fr 1fr;gap:28px}
+  .sgrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .nlinks{display:none}
+  .ncta2{display:none}
+  .ham{display:flex}
+  section{padding:60px 5%}
+  .sgrid{grid-template-columns:1fr}
+  .svgrid{grid-template-columns:1fr!important}
+  .sc{border-left:3px solid var(--green)!important;transform:none!important;box-shadow:none!important}
+  #ceo{grid-template-columns:1fr}
+  .cframe{aspect-ratio:4/3}
+  .pwgrid{grid-template-columns:1fr}
+  .tgrid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .fmain{grid-template-columns:1fr}
+  .hbtns{flex-direction:column}
+  .btn1,.btn2{justify-content:center;text-align:center}
+  .sgrid>div:last-child{display:none}
+}
+@media(max-width:480px){
+  .sgrid{grid-template-columns:repeat(2,1fr)}
+  .si{padding:22px 14px}
+  .sn{font-size:36px}
+}
+
+/* GALLERY */
+#gallery{background:var(--navy-dark)}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.gcard{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer}
+.gcard img{width:100%;height:100%;object-fit:cover;transition:.4s;display:block}
+.gcard:hover img{transform:scale(1.05)}
+.gcap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,28,62,.92));padding:20px 16px 16px;transform:translateY(100%);transition:.3s}
+.gcard:hover .gcap{transform:translateY(0)}
+.gcap-name{font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+.gcap-title{font-size:11px;color:var(--green-bright);margin-top:3px;letter-spacing:.5px}
+.gplaceholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:12px;color:rgba(255,255,255,.2)}
+.gplaceholder svg{opacity:.3}
+.gplaceholder span{font-size:11px;letter-spacing:1px;text-transform:uppercase}
+@media(max-width:768px){.ggrid{grid-template-columns:1fr}}
+@media(max-width:1024px){.ggrid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nlogo">
+    <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="19" stroke="#22A050" stroke-width="1.5"/>
+      <path d="M27 14.5H20C16.96 14.5 14.5 16.96 14.5 20C14.5 23.04 16.96 25.5 20 25.5H22.5V21.5H20C19.17 21.5 18.5 20.83 18.5 20C18.5 19.17 19.17 18.5 20 18.5H27V14.5Z" fill="white"/>
+      <path d="M27 21.5H24.5V25.5H27V21.5Z" fill="#22A050"/>
+    </svg>
+    <div><div class="nname">GOKKENS</div><div class="nsub">Construction Co. Nig Ltd</div></div>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ceo">Leadership</a></li>
+    <li><a href="#pw">Projects</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#testi">Clients</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="ncta">Contact Us</a></li>
+  </ul>
+  <button class="ham" id="ham" onclick="toggleMob()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <a href="#about" onclick="toggleMob()">About</a>
+  <a href="#services" onclick="toggleMob()">Services</a>
+  <a href="#ceo" onclick="toggleMob()">Leadership</a>
+  <a href="#pw" onclick="toggleMob()">Projects</a>
+  <a href="#testi" onclick="toggleMob()">Clients</a>
+  <a href="#gallery" onclick="toggleMob()">Gallery</a>
+  <a href="#contact" onclick="toggleMob()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbadge"><b></b> RC: 7350581 &mdash; CAC Certified</div>
+  <h1 class="htitle">Building <em>Nigeria</em><br>From The Ground Up</h1>
+  <p class="hsub">Gokkens Construction Co.</p>
+  <p class="hdesc">From roads and drainage to real estate and consultancy — we deliver infrastructure that stands the test of time, right here in Imo State and across Nigeria.</p>
+  <div class="hbtns">
+    <a href="#services" class="btn1"><i data-lucide="hard-hat" width="15" height="15"></i> Our Services</a>
+    <a href="#contact" class="btn2"><i data-lucide="phone" width="15" height="15"></i> Get In Touch</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="sgrid">
+    <div class="si"><div class="sn">12</div><div class="sl">Proposed Projects</div></div>
+    <div class="si"><div class="sn">2024</div><div class="sl">Incorporated</div></div>
+    <div class="si"><div class="sn">100<span>%</span></div><div class="sl">Client Satisfaction</div></div>
+    <div class="si"><div class="sn">Imo</div><div class="sl">State, Nigeria</div></div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="shead">
+    <p class="ey">What We Do</p>
+    <h2 class="st">Our Core Services</h2>
+    <p class="sd">End-to-end construction and consultancy services for public and private sector clients across Nigeria.</p>
+  </div>
+  <div class="svgrid">
+    <div class="sc" data-n="01">
+      <div class="sicon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 4-6 4 10"/><path d="M3 21h18"/></svg>
+      </div>
+      <div class="sn2">Construction of Roads</div>
+      <p class="sdesc">We design, build and rehabilitate roads to the highest engineering standards, connecting communities and enabling economic growth.</p>
+    </div>
+    <div class="sc" data-n="02">
+      <div class="sicon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <div class="sn2">Drainage &amp; Building</div>
+      <p class="sdesc">From stormwater management to full-scale commercial and residential construction — structurally sound, built to last.</p>
+    </div>
+    <div class="sc" data-n="03">
+      <div class="sicon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      </div>
+      <div class="sn2">Real Estate</div>
+      <p class="sdesc">Premium residential and commercial real estate development, from land acquisition through to final handover.</p>
+    </div>
+    <div class="sc" data-n="04">
+      <div class="sicon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="sn2">Contracts</div>
+      <p class="sdesc">Civil and structural engineering contracts for government agencies, corporations and private developers — on time, on budget.</p>
+    </div>
+    <div class="sc" data-n="05">
+      <div class="sicon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+      <div class="sn2">Consultancy</div>
+      <p class="sdesc">Professional advisory, feasibility studies, project assessment and engineering consultancy at every stage of your project.</p>
+    </div>
+    <div class="sc" data-n="" style="background:linear-gradient(135deg,var(--navy),var(--navy-mid));border:none;display:flex;flex-direction:column;justify-content:center;">
+      <p style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:700;margin-bottom:12px;">Our Promise</p>
+      <p style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:#fff;line-height:1.5;">"Your Satisfaction is Our Priority."</p>
+      <a href="#contact" class="btn1" style="margin-top:22px;align-self:flex-start;"><i data-lucide="arrow-right" width="14" height="14"></i> Work With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div style="position:relative">
+    <div class="aimg">
+      <img loading="lazy" src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Construction site" onerror="this.style.display='none'"/>
+    </div>
+    <div class="abadge"><div class="big">Nig.</div><div class="sm">Ltd</div></div>
+  </div>
+  <div>
+    <p class="ey">Who We Are</p>
+    <h2 class="st">About Gokkens</h2>
+    <p class="sd">Gokkens Construction Company Nig. Ltd is a fully registered Nigerian firm, incorporated under the Companies and Allied Matters Act 2020 with RC No. 7350581.</p>
+    <div class="alist">
+      <div class="ali"><i data-lucide="check-circle-2" width="17" height="17"></i><span>Headquartered at No. 1, BSC Road, Orlu, Imo State with an additional office at #205 Jubocs Mall, New Owerri.</span></div>
+      <div class="ali"><i data-lucide="check-circle-2" width="17" height="17"></i><span>Led by experienced Nigerian professionals committed to delivering world-class infrastructure.</span></div>
+      <div class="ali"><i data-lucide="check-circle-2" width="17" height="17"></i><span>CAC certified, operating with the highest ethical and quality standards on every project.</span></div>
+      <div class="ali"><i data-lucide="check-circle-2" width="17" height="17"></i><span>Serving public institutions, private corporations, and individual clients across Nigeria.</span></div>
+    </div>
+    <div class="arc"><i data-lucide="shield-check" width="13" height="13" style="color:var(--green)"></i> RC: 7350581 &nbsp;|&nbsp; Incorporated: February 15, 2024</div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- CEO -->
+<section id="ceo">
+  <div>
+    <div class="cframe" style="padding:0;overflow:hidden;">
+      <img loading="lazy" src="images/ceo_team.jpg" alt="Prince Kenneth Obi - CEO"
+           style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;"/>
+      <div class="ctag">
+        <div class="cn">Prince Kenneth Obi</div>
+        <div class="cr">Managing Director &amp; CEO</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p class="ey cey">Our Leadership</p>
+    <h2 class="st cst">A Vision Built to Last</h2>
+    <div class="cstory">
+      <p>Prince Kenneth Obi is the founding Managing Director and CEO of Gokkens Construction Company Nig. Ltd. A visionary builder and entrepreneur from Imo State, Prince Kenneth has dedicated his professional life to transforming the built environment of southeastern Nigeria.</p>
+      <p>With a deep understanding of infrastructure development and an unwavering belief in Nigerian potential, he established Gokkens in 2024 with a clear mandate — to deliver construction excellence that communities can trust. His leadership philosophy is rooted in integrity, accountability, and an obsessive commitment to quality.</p>
+      <p>Under his direction, Gokkens has taken on ambitious projects in road construction, drainage engineering, and real estate, earning a reputation for delivering on promises.</p>
+    </div>
+    <div class="cq">
+      <blockquote>"We don't just build structures — we build legacies. Every contract we take on is a commitment to the people who will use what we create for generations to come."</blockquote>
+    </div>
+    <a href="mailto:princeken@gokkensconstruction.com" class="cemail">
+      <i data-lucide="mail" width="14" height="14"></i> princeken@gokkensconstruction.com
+    </a>
+  </div>
+</section>
+
+<!-- PROPOSED WORKS -->
+<section id="pw">
+  <p class="ey">Our Pipeline</p>
+  <h2 class="st">Proposed Works</h2>
+  <p class="sd">12 active project proposals spanning real estate, education, healthcare, industry, and agriculture across Imo State.</p>
+
+  <div class="pwfilters" id="pwfilters">
+    <button class="pwf active" onclick="filterPW('all',this)">All <span>12</span></button>
+    <button class="pwf" onclick="filterPW('real-estate',this)">Real Estate <span>3</span></button>
+    <button class="pwf" onclick="filterPW('education',this)">Education <span>3</span></button>
+    <button class="pwf" onclick="filterPW('industrial',this)">Industrial <span>3</span></button>
+    <button class="pwf" onclick="filterPW('healthcare',this)">Healthcare <span>1</span></button>
+    <button class="pwf" onclick="filterPW('agriculture',this)">Agriculture <span>2</span></button>
+  </div>
+
+  <div class="pwgrid" id="pwgrid">
+
+    <div class="pwc" data-cat="real-estate">
+      <div class="pwthumb"><img loading="lazy" src="images/img_2.jpg" alt="GRA Orlu"/></div>
+      <div class="pwb"><div class="pwcat">Real Estate</div><div class="pwtitle">GRA — 75 Duplex Blocks</div><p class="pwdesc">Proposed GRA comprising 75 premium duplex blocks. Located at Owerri-Eberi Orlu, Opposite Menacord.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/GRA.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="real-estate">
+      <div class="pwthumb"><img loading="lazy" src="images/img_3.jpg" alt="Orlu Estate"/></div>
+      <div class="pwb"><div class="pwcat">Real Estate</div><div class="pwtitle">Orlu Estate — 100 Blocks</div><p class="pwdesc">Proposed estate with 50 duplex blocks and 50 two-storey blocks. Located behind Orlu Building Material, Owerri-Eberi/Umuowa.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/ESTATE.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="real-estate">
+      <div class="pwthumb"><img loading="lazy" src="images/img_4.jpg" alt="City Prize Housing"/></div>
+      <div class="pwb"><div class="pwcat">Real Estate</div><div class="pwtitle">City Prize Housing — Umuahia</div><p class="pwdesc">Housing development of 116 units of 3-BR flats and 11 units of 4-BR detached duplexes for City Prize Nig. Ltd, Umuahia. Total cost: &#x20A6;8.87 billion.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/CityPraize_Umuahia.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="healthcare">
+      <div class="pwthumb"><img loading="lazy" src="images/img_5.jpg" alt="Medical Centre"/></div>
+      <div class="pwb"><div class="pwcat">Healthcare</div><div class="pwtitle">State-of-Art Medical Centre</div><p class="pwdesc">Proposed state-of-the-art hospital. Located at Obibi Ochasi, Orlu LGA, Imo State.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/HOSPITAL.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="education">
+      <div class="pwthumb"><img loading="lazy" src="images/img_6.jpg" alt="Orlu Girls College"/></div>
+      <div class="pwb"><div class="pwcat">Education</div><div class="pwtitle">Orlu Girls College (Smart School)</div><p class="pwdesc">Proposed smart girls college. Located at Umuna, Opposite Saint Joseph Catholic Church, Umuna Orlu.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/ORLU_GIRLS_SMART_SCH_3.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="education">
+      <div class="pwthumb"><img loading="lazy" src="images/img_7.jpg" alt="Orlu City Senior School"/></div>
+      <div class="pwb"><div class="pwcat">Education</div><div class="pwtitle">Orlu City Senior Secondary School</div><p class="pwdesc">Proposed smart senior secondary school. Located at Umudioka Ukwu Community, Orlu.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/ORLU_CITY_SENIOR_SECONDARY_SCH__SMART_SCH4.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="education">
+      <div class="pwthumb"><img loading="lazy" src="images/img_8.jpg" alt="Orlu High School"/></div>
+      <div class="pwb"><div class="pwcat">Education</div><div class="pwtitle">Orlu High School (Smart School)</div><p class="pwdesc">Proposed smart high school. Located at Okporo, behind Imo State College of Nursing, Orlu LGA.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/smart_school_2.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="industrial">
+      <div class="pwthumb"><img loading="lazy" src="images/img_9.jpg" alt="Groundnut Oil Factory"/></div>
+      <div class="pwb"><div class="pwcat">Industrial</div><div class="pwtitle">Groundnut Oil Factory</div><p class="pwdesc">Proposed large-scale groundnut oil processing factory. Located behind Seminary School Umuowa, Orlu.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/GROUNDNUT_OIL.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="industrial">
+      <div class="pwthumb"><img loading="lazy" src="images/img_10.jpg" alt="Tomato Factory"/></div>
+      <div class="pwb"><div class="pwcat">Industrial</div><div class="pwtitle">Tomato Processing Factory</div><p class="pwdesc">Proposed tomato processing and packaging factory. Located at Eziachi Village, Orlu.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/TOMATO.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="industrial">
+      <div class="pwthumb"><img loading="lazy" src="images/img_11.jpg" alt="Biscuit Factory"/></div>
+      <div class="pwb"><div class="pwcat">Industrial</div><div class="pwtitle">Biscuit Factory</div><p class="pwdesc">Proposed large-scale biscuit manufacturing facility. Located at Eziachi Village, Orlu.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/BISCUIT_FACTORY.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="agriculture">
+      <div class="pwthumb"><img loading="lazy" src="images/img_12.jpg" alt="Livestock Farm"/></div>
+      <div class="pwb"><div class="pwcat">Agriculture</div><div class="pwtitle">Livestock Farm — Amike Farmland</div><p class="pwdesc">Large-scale cattle, goat, pig and poultry farming at Amike Farmland, Orlu. 480 cows, 2,500 goats, 2,500 pigs, 5,000 birds.</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/CATTLE__GOAT__PIG_AND_POULTRY_FARMING_AT_AMIKE_FARMLAND__ORLU_IN_IMO_STATE_NIGERIA__OF_A.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+    <div class="pwc" data-cat="agriculture">
+      <div class="pwthumb"><img loading="lazy" src="images/img_13.jpg" alt="Fish Farm"/></div>
+      <div class="pwb"><div class="pwcat">Agriculture</div><div class="pwtitle">Fish Farm — 5M Fingerling Capacity</div><p class="pwdesc">Commercial fish farm on 4 hectares, Orlu LGA. 5 million fingerling capacity. Construction cost: &#x20A6;11.36 billion (&#x20AC;7.1M).</p></div>
+      <div class="pwfoot"><span class="pws u">Proposed</span><a href="pdfs/FISH_POUND_024215.pdf" target="_blank" class="pwlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View PDF</a></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section id="team" style="background:#fff">
+  <div class="thead" style="margin-bottom:48px">
+    <p class="ey" style="justify-content:center"><span style="width:28px;height:2px;background:var(--green);display:inline-block;margin-right:10px"></span>The People Behind The Work</p>
+    <h2 class="st" style="text-align:center">Meet Our Team</h2>
+    <p class="sd" style="margin:12px auto 0;text-align:center">Experienced professionals committed to delivering excellence on every project.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;max-width:900px;margin:0 auto">
+
+    <!-- Card: CEO -->
+    <div style="text-align:center">
+      <div style="width:200px;height:200px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:4px solid var(--green);box-shadow:0 8px 32px rgba(11,43,92,.15)">
+        <img loading="lazy" src="images/ceo_team.jpg"
+             alt="Prince Kenneth Obi"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top"/>
+      </div>
+      <div style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px">Prince Kenneth Obi</div>
+      <div style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Managing Director &amp; CEO</div>
+      <div style="margin-top:10px;width:40px;height:3px;background:var(--green);margin-left:auto;margin-right:auto;border-radius:2px"></div>
+    </div>
+
+    <!-- Card: Engineer -->
+    <div style="text-align:center">
+      <div style="width:200px;height:200px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:4px solid var(--green);box-shadow:0 8px 32px rgba(11,43,92,.15)">
+        <img loading="lazy" src="images/engineer.jpg"
+             alt="Engr. Amarachukwu Okereke"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top"/>
+      </div>
+      <div style="font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px">Engr. Amarachukwu Okereke</div>
+      <div style="font-size:11px;color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Site Manager</div>
+      <div style="margin-top:10px;width:40px;height:3px;background:var(--green);margin-left:auto;margin-right:auto;border-radius:2px"></div>
+    </div>
+
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="thead">
+    <p class="ey">Client Confidence</p>
+    <h2 class="st">What Our Clients Say</h2>
+    <p class="sd" style="margin:12px auto 0;text-align:center">Trusted by institutions, corporations, and private developers who demand the best.</p>
+  </div>
+  <div class="tgrid">
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"Gokkens Construction delivered our drainage infrastructure project on schedule and beyond our quality expectations. Their professionalism sets them apart."</p>
+      <div class="tau"><div class="tav">IM</div><div><div class="tname">Engr. Chukwudi Eze</div><div class="tco">Imo State Ministry of Works</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"We contracted Gokkens for our commercial complex in Owerri. They brought a level of commitment and technical expertise we hadn't seen before. Highly recommended."</p>
+      <div class="tau"><div class="tav">AP</div><div><div class="tname">Mrs. Adaeze Philips</div><div class="tco">Apex Properties Ltd, Owerri</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"Gokkens handled our road rehabilitation contract with remarkable efficiency. Prince Kenneth's team communicated clearly and delivered a road our community is proud of."</p>
+      <div class="tau"><div class="tav">OL</div><div><div class="tname">Chief Okechukwu Ibe</div><div class="tco">Orlu Local Government Council</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"Their consultancy team helped us understand the full scope of our infrastructure needs before we broke ground. That clarity saved us significant cost and time."</p>
+      <div class="tau"><div class="tav">BH</div><div><div class="tname">Mr. Bartholomew Nwosu</div><div class="tco">Buildex Holdings Nigeria</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"Working with Gokkens on our real estate project was seamless. From design consultation to final construction, they maintained professionalism every step of the way."</p>
+      <div class="tau"><div class="tav">NG</div><div><div class="tname">Dr. Ngozi Amadi</div><div class="tco">Nnamdi Group of Companies</div></div></div>
+    </div>
+    <div class="tc">
+      <div class="tstars"><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i><i data-lucide="star" width="13" height="13" style="fill:var(--gold)"></i></div>
+      <i data-lucide="quote" width="26" height="26" class="tqi"></i>
+      <p class="ttext">"Gokkens brought genuine expertise and local knowledge to our federal road contract. Their team is disciplined, their work is solid, and their pricing was fair."</p>
+      <div class="tau"><div class="tav">FW</div><div><div class="tname">Engr. Festus Okonkwo</div><div class="tco">Federal Ministry of Works, SE Zone</div></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<div class="divider"></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="thead">
+    <p class="ey">Our People &amp; Moments</p>
+    <h2 class="st">Company Gallery</h2>
+    <p class="sd" style="margin:12px auto 0;text-align:center">A glimpse into the leadership, meetings, and milestones that define Gokkens Construction.</p>
+  </div>
+  <div class="ggrid">
+    <div class="gcard">
+      <img src="images/gallery_lady.jpg" alt="Gokkens Construction - Building Excellence" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Building Excellence</div>
+        <div class="gcap-title">Gokkens Construction Co. Nig. Ltd</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_17.jpg" alt="Company Meeting" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Company Meeting</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_18.jpg" alt="Business Discussion" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Business Discussion</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_19.jpg" alt="Document Exchange" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Document Exchange</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_20.jpg" alt="Team Meeting" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Team Meeting</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_21.jpg" alt="Leadership Meeting" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Leadership Meeting</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+    <div class="gcard">
+      <img src="images/img_22.jpg" alt="Board Discussion" loading="lazy"/>
+      <div class="gcap">
+        <div class="gcap-name">Board Discussion</div>
+        <div class="gcap-title">Paris, France</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div>
+    <p class="ey" style="color:var(--green-bright)"><span style="width:28px;height:2px;background:var(--green-bright);display:inline-block;margin-right:10px"></span>Reach Out</p>
+    <h2 class="st" style="color:#fff">Let's Build Together</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.75;margin-top:14px;max-width:380px">Whether you have a project in mind, a contract to award, or simply want to learn more — we're ready.</p>
+    <div class="citems">
+      <div class="citem">
+        <div class="cicon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22A050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div><div class="clbl">Address</div><div class="cval">No. 1, BSC Road, Orlu, Imo State<br>#205 Jubocs Mall, New Owerri, Imo State</div></div>
+      </div>
+      <div class="citem">
+        <div class="cicon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22A050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9v2.02z"/></svg>
+        </div>
+        <div><div class="clbl">Phone</div><div class="cval"><a href="tel:+2349055407029">+234 905 540 7029</a><br><a href="tel:+33744239795">+337 442 39795</a></div></div>
+      </div>
+      <div class="citem">
+        <div class="cicon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#22A050"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div><div class="clbl">WhatsApp</div><div class="cval"><a href="https://wa.me/33753758952" target="_blank">+337 537 58952</a><br><a href="https://wa.me/2349041363716" target="_blank">+234 904 136 3716</a></div></div>
+      </div>
+      <div class="citem">
+        <div class="cicon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#22A050" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div><div class="clbl">Email</div><div class="cval"><a href="mailto:info@gokkensconstructioncompany.com">info@gokkensconstructioncompany.com</a><br><a href="mailto:princeken@gokkensconstruction.com">princeken@gokkensconstruction.com</a></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cfwrap">
+    <div class="cftitle">Send Us a Message</div>
+    <div class="frow">
+      <div class="fg"><label>First Name</label><input id="fname" type="text" placeholder="John"/></div>
+      <div class="fg"><label>Last Name</label><input id="lname" type="text" placeholder="Doe"/></div>
+    </div>
+    <div class="fg"><label>Email</label><input id="femail" type="email" placeholder="you@example.com"/></div>
+    <div class="fg"><label>Phone</label><input id="fphone" type="tel" placeholder="+234 000 000 0000"/></div>
+    <div class="fg"><label>Service Interest</label>
+      <select id="fservice">
+        <option value="">Select a service...</option>
+        <option>Construction of Roads</option>
+        <option>Drainage and Building</option>
+        <option>Real Estate</option>
+        <option>Contracts</option>
+        <option>Consultancy</option>
+      </select>
+    </div>
+    <div class="fg"><label>Message</label><textarea id="fmessage" placeholder="Tell us about your project..."></textarea></div>
+    <button class="fsub" onclick="submitForm(this)"><i data-lucide="send" width="14" height="14"></i> Send Message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fmain">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#22A050" stroke-width="1.5"/><path d="M27 14.5H20C16.96 14.5 14.5 16.96 14.5 20C14.5 23.04 16.96 25.5 20 25.5H22.5V21.5H20C19.17 21.5 18.5 20.83 18.5 20C18.5 19.17 19.17 18.5 20 18.5H27V14.5Z" fill="white"/><path d="M27 21.5H24.5V25.5H27V21.5Z" fill="#22A050"/></svg>
+        <div><div style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:1px">GOKKENS</div><div style="font-size:9px;color:var(--green-bright);letter-spacing:1.5px;text-transform:uppercase;font-weight:700">Construction Co. Nig Ltd</div></div>
+      </div>
+      <p class="ftag">Your satisfaction is our priority. We build roads, structures and futures across Imo State and Nigeria.</p>
+      <div class="frc"><i data-lucide="shield" width="11" height="11" style="color:var(--green-bright)"></i> RC No. 7350581 | CAC Certified</div>
+    </div>
+    <div>
+      <div class="fct">Services</div>
+      <ul class="flinks">
+        <li><a href="#services"><i data-lucide="chevron-right" width="12" height="12"></i>Road Construction</a></li>
+        <li><a href="#services"><i data-lucide="chevron-right" width="12" height="12"></i>Drainage & Building</a></li>
+        <li><a href="#services"><i data-lucide="chevron-right" width="12" height="12"></i>Real Estate</a></li>
+        <li><a href="#services"><i data-lucide="chevron-right" width="12" height="12"></i>Contracts</a></li>
+        <li><a href="#services"><i data-lucide="chevron-right" width="12" height="12"></i>Consultancy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">Company</div>
+      <ul class="flinks">
+        <li><a href="#about"><i data-lucide="chevron-right" width="12" height="12"></i>About Us</a></li>
+        <li><a href="#ceo"><i data-lucide="chevron-right" width="12" height="12"></i>Leadership</a></li>
+        <li><a href="#pw"><i data-lucide="chevron-right" width="12" height="12"></i>Proposed Works</a></li>
+        <li><a href="#testi"><i data-lucide="chevron-right" width="12" height="12"></i>Testimonials</a></li>
+        <li><a href="#contact"><i data-lucide="chevron-right" width="12" height="12"></i>Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fct">Contact</div>
+      <ul class="flinks">
+        <li><a href="tel:+2349055407029"><i data-lucide="phone" width="12" height="12"></i>+234 905 540 7029</a></li>
+        <li><a href="https://wa.me/33753758952" target="_blank"><i data-lucide="message-circle" width="12" height="12"></i>WhatsApp Us</a></li>
+        <li><a href="mailto:info@gokkensconstructioncompany.com"><i data-lucide="mail" width="12" height="12"></i>Email Us</a></li>
+        <li><a href="#contact"><i data-lucide="map-pin" width="12" height="12"></i>Orlu, Imo State</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <p class="fcopy">&copy; 2024 Gokkens Construction Company Nig. Ltd. All rights reserved. RC: 7350581.</p>
+    <p class="fcopy">Imo State, Nigeria</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/33753758952" target="_blank" class="wa" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function initIcons(){if(window.lucide)lucide.createIcons();}
+
+  function ready(fn){
+    if(document.readyState!=='loading') fn();
+    else document.addEventListener('DOMContentLoaded',fn);
+  }
+
+  // Hero image fallback
+  var heroEl = document.getElementById('hero');
+  var heroImages = [
+    'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    'https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    'https://images.pexels.com/photos/2098624/pexels-photo-2098624.jpeg?auto=compress&cs=tinysrgb&w=1600'
+  ];
+  var heroIdx = 0;
+  function tryHeroImg(){
+    if(heroIdx >= heroImages.length) return;
+    var img = new Image();
+    img.onload = function(){
+      heroEl.style.backgroundImage = 'linear-gradient(135deg,rgba(7,28,62,.93) 0%,rgba(11,43,92,.88) 55%,rgba(26,122,60,.5) 100%),url(' + heroImages[heroIdx] + ')';
+    };
+    img.onerror = function(){ heroIdx++; tryHeroImg(); };
+    img.src = heroImages[heroIdx];
+  }
+  tryHeroImg();
+
+  ready(function(){
+    // Init icons — retry if not yet loaded
+    if(window.lucide){lucide.createIcons();}
+    else{
+      var t=setInterval(function(){if(window.lucide){lucide.createIcons();clearInterval(t);}},50);
+    }
+
+    // Navbar scroll
+    window.addEventListener('scroll',function(){
+      document.getElementById('nav').classList.toggle('s',window.scrollY>60);
+    });
+
+    // Intersection observer for fade-in
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}
+      });
+    },{threshold:.1});
+    document.querySelectorAll('.sc,.tc,.pwc,.si').forEach(function(el){
+      el.style.opacity='0';
+      el.style.transform='translateY(18px)';
+      el.style.transition='opacity .5s ease, transform .5s ease, border-left-color .3s, box-shadow .3s';
+      obs.observe(el);
+    });
+  });
+
+  function toggleMob(){
+    var m=document.getElementById('mob');
+    m.style.display=m.style.display==='block'?'none':'block';
+  }
+  document.addEventListener('click',function(e){
+    var m=document.getElementById('mob'),h=document.getElementById('ham');
+    if(m&&h&&!m.contains(e.target)&&!h.contains(e.target))m.style.display='none';
+  });
+
+  function submitForm(btn){
+    var fname = document.getElementById('fname').value.trim();
+    var lname = document.getElementById('lname').value.trim();
+    var email = document.getElementById('femail').value.trim();
+    var phone = document.getElementById('fphone').value.trim();
+    var service = document.getElementById('fservice').value;
+    var message = document.getElementById('fmessage').value.trim();
+
+    if(!fname || !email || !message){
+      alert('Please fill in your name, email and message before sending.');
+      return;
+    }
+
+    var subject = 'Enquiry from ' + fname + ' ' + lname + (service ? ' — ' + service : '');
+    var body = 'Name: ' + fname + ' ' + lname
+      + '\nEmail: ' + email
+      + '\nPhone: ' + phone
+      + '\nService Interest: ' + service
+      + '\n\nMessage:\n' + message;
+
+    window.location.href = 'mailto:info@gokkensconstructioncompany.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    btn.innerHTML = '✓ Opening Email Client...';
+    btn.style.background = '#1A7A3C';
+    btn.disabled = true;
+    setTimeout(function(){
+      btn.innerHTML = 'Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
+
+  function filterPW(cat,btn){
+    document.querySelectorAll('.pwf').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    document.querySelectorAll('.pwc').forEach(function(c){
+      c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+    });
+  }
+</script>
+</body>
+</html>
